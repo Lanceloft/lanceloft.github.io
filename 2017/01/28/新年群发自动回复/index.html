@@ -1,0 +1,31 @@
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"><meta name="format-detection" content="telephone=no"><meta name="format-detection" content="email=no"><meta name="description"><meta name="keywords" content="Hexo, Gruntjs, Nodejs, Reactjs, Vuejs"><title>新年群发自动回复 - lanceloft's blog</title><link rel="stylesheet" href="/css/main_style.min.css"><link rel="icon" href="/favicon.ico"></head><body><input id="navi" type="checkbox"><ul class="main-navication"><li><a href="/"><span>Home</span></a></li><li><a href="https://github.com"><span>Github</span></a></li><li><a href="https://www.v2ex.com/"><span>V2EX</span></a></li></ul><div class="wrapper" id="wrap"><div class="post-header"><label class="navi-button light" for="navi">MENU</label><img class="background" src="http://callfiles.ueibo.com/hexo-theme-laughing/post_background.jpg"><div class="post-title"><h1 class="title">新年群发自动回复</h1><ul class="meta"><li><i class="icon icon-author"></i>Lanceloft</li><li><i class="icon icon-clock"></i>1 Minutes</li><li><i class="icon icon-calendar"></i>January 28, 2017</li></ul></div></div><div class="article-content" style="max-width:800px"><p>　　每到节假日，微信上就有一堆认识/不认识的在群发各种&lt;稀奇古怪、复制粘贴来&gt;的祝福语，进行各种各样的轰炸。虽然我平时的态度都死不回复的，后来看到github上一个Python自动回复的机器人，觉得还挺有意思，就设置一下关键字，自动回复对上群发，也不吃亏。话不多说，先贴上作者github项目地址：<a href="https://github.com/littlecodersh/itchat" target="_blank" rel="noopener">https://github.com/littlecodersh/itchat</a></p>
+<p>　　简单小白起步，首先是必须安装Python，不过Linux或者mac用户应该已经安装好了的  <a href="https://www.python.org/downloads/" target="_blank" rel="noopener">https://www.python.org/downloads/</a><br>接下来就是需要安装pip <a href="https://pip.pypa.io/en/stable/installing/" target="_blank" rel="noopener">https://pip.pypa.io/en/stable/installing/</a><br>这里以ubuntu为例子</p>
+<blockquote>
+<p>$ sudo apt-get install python-pip python-dev build-essential<br>$ sudo pip install –upgrade pip<br>$ sudo pip install –upgrade virtualenv</p>
+</blockquote>
+<p>　　安装好pip后，就可以利用pip来安装itchat</p>
+<blockquote>
+<p>pip install itchat</p>
+</blockquote>
+<p>　　为了在终端上能正常显示登录二维码，需要安装pillow</p>
+<blockquote>
+<p>pip install pillow</p>
+</blockquote>
+<p>　　新建一个index.py文件，复制以下代码</p>
+<pre><code>#coding=utf-8
+import itchat, time, re
+from itchat.content import *
+
+@itchat.msg_register([TEXT, MAP, CARD, NOTE, SHARING])
+def text_reply(msg):
+    match = re.search(u&apos;新年&apos;, msg[&apos;Text&apos;]).span()
+    if match:
+      itchat.send((u&apos;祝你新春快乐，鸡年大吉哎哟&apos;), msg[&apos;FromUserName&apos;])
+
+itchat.auto_login(enableCmdQR=2)
+itchat.run()
+</code></pre><p>　　因为本身不是写Python，从github复制了代码，换上中文，发现并没有完成自动回复。后来找了很多原因才发现原来Python默认都是ANSCII嘛，然后特别是输入中文时候就有问题了，不过Python的解决方法也是挺简单，在中文前加个u就好了。u’新年’就解决了编码不一的问题。<br>　　enableCmdQR=2是因为我ubuntu的终端字符宽度不一，统一一下才可以正常显示二维码。这些方法在作者github都能看到。<br>　　终端执行python index.py就好了，然后扫描就一下就可以了，非常简单快捷。过年这几天已经丢到腾讯云上，就让那些群发来鞭挞我吧。</p>
+</div><div class="article-meta" style="max-width:800px"><div class="categories"><i class="icon icon-category"></i><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/小笔记/">小笔记</a><span class="category-list-count">3</span></li></ul></div></div><ul class="navication"><li class="home"><a href="/"><i class="icon icon-home"></i></a></li><li><a href="/2017/02/23/vue查看详情/"><i class="icon icon-arror-left"></i></a></li><li><a href="/2016/12/19/jqSlotMachine/"><i class="icon icon-arror-right"></i></a></li></ul><div class="page-footer"><div class="top"><ul class="social"><li><a href="https://github.com/lanceloft" title="Github" target="_blank"><i class="icon icon-github"></i></a></li></ul></div><div class="bottom"><p class="copyright">© 2019 lanceloft's blog<br><small>POWER BY <a href="https://hexo.io" target="_blank">HEXO</a></small><small>, THEME BY <a href="https://github.com/BoizZ/hexo-theme-laughing" target="_blank">LAUGHING</a></small></p></div></div></div><script>var wrap = document.getElementById('wrap');
+window.onload = function () {
+  wrap.className += ' done';
+}</script></body></html>

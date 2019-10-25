@@ -1,0 +1,44 @@
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"><meta name="format-detection" content="telephone=no"><meta name="format-detection" content="email=no"><meta name="description"><meta name="keywords" content="Hexo, Gruntjs, Nodejs, Reactjs, Vuejs"><title>利用hexo建博客0 - lanceloft's blog</title><link rel="stylesheet" href="/css/main_style.min.css"><link rel="icon" href="/favicon.ico"></head><body><input id="navi" type="checkbox"><ul class="main-navication"><li><a href="/"><span>Home</span></a></li><li><a href="https://github.com"><span>Github</span></a></li><li><a href="https://www.v2ex.com/"><span>V2EX</span></a></li></ul><div class="wrapper" id="wrap"><div class="post-header"><label class="navi-button light" for="navi">MENU</label><img class="background" src="http://callfiles.ueibo.com/hexo-theme-laughing/post_background.jpg"><div class="post-title"><h1 class="title">利用hexo建博客0</h1><ul class="meta"><li><i class="icon icon-author"></i>Lanceloft</li><li><i class="icon icon-clock"></i>1 Minutes</li><li><i class="icon icon-calendar"></i>December 1, 2016</li></ul></div></div><div class="article-content" style="max-width:800px"><h4 id="开头介绍"><a href="#开头介绍" class="headerlink" title="开头介绍"></a>开头介绍</h4><p>&emsp;&emsp;我的第一次搭建博客大约在五个月前，同样利用hexo，当初对于npm,node等都不熟悉，所以勉强用了挺久的时间才搭出第一次的hexo博客。甚至说再建一次也要重新跟着教程跑才能写出教程过了几个月知识广了，现在重新搭建大约就十来分钟，甚至包括npm intsall的时间。所以就从头开始吧。  </p>
+<p>&emsp;&emsp;首先不建议在windows下进行，不仅因为Windows的cmd太丑了，也因为windows下使用node会有各种不友好。所以建议使用mac os，当然买不起mac的就用linux系统，现在的ubuntu十分人性化，十分适合不需要设计的编程or就上上网的人。  </p>
+<h4 id="正式开始"><a href="#正式开始" class="headerlink" title="正式开始"></a>正式开始</h4><p>&emsp;&emsp;首先hexo是基于nodejs的，其他的介绍可以在官网看到就不bb了。首先需要安装node和npm。可以在官网进行下载。建议使用nvm。  </p>
+<blockquote>
+<p>wget -qO- <a href="https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh" target="_blank" rel="noopener">https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh</a> | bash</p>
+</blockquote>
+<p>如果终端没报错的话，可以继续执行nvm install stable</p>
+<p>接下来使用nvm use node，如果终端提示找不到node，则重启终端。再次运行。</p>
+<p>这时候运行</p>
+<blockquote>
+<p>node -v</p>
+</blockquote>
+<p>以及</p>
+<blockquote>
+<p>npm -v</p>
+</blockquote>
+<p>如果都能看到版本，证明node和npm安装成功。接下里使用以下命令全局安装hexo。</p>
+<blockquote>
+<p>npm install -g hexo-cli</p>
+</blockquote>
+<p>如果终端没翻墙会发现很慢也不知道有没有卡住，使用以下命令会有点心理安慰</p>
+<blockquote>
+<p>npm install -g hexo-cli -d</p>
+</blockquote>
+<p>接下来进入任意一个文件夹，运行</p>
+<blockquote>
+<p>hexo init blog</p>
+</blockquote>
+<p>博客已初始化，当然现在还不能用运行</p>
+<blockquote>
+<p>cd blog</p>
+</blockquote>
+<blockquote>
+<p>npm install -d</p>
+</blockquote>
+<p>稍等片刻依赖包就已经安装好了</p>
+<blockquote>
+<p>hexo server</p>
+</blockquote>
+<p>在浏览器输入localhost:4000就可以看到自己的博客建成了。是不是瞬间成就感满满的，接下来还会继续介绍hexo的各种神奇功能。</p>
+</div><div class="article-meta" style="max-width:800px"><div class="categories"><i class="icon icon-category"></i><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">4</span></li></ul></div></div><ul class="navication"><li class="home"><a href="/"><i class="icon icon-home"></i></a></li><li><a href="/2016/12/02/利用hexo建博客1/"><i class="icon icon-arror-left"></i></a></li></ul><div class="page-footer"><div class="top"><ul class="social"><li><a href="https://github.com/lanceloft" title="Github" target="_blank"><i class="icon icon-github"></i></a></li></ul></div><div class="bottom"><p class="copyright">© 2019 lanceloft's blog<br><small>POWER BY <a href="https://hexo.io" target="_blank">HEXO</a></small><small>, THEME BY <a href="https://github.com/BoizZ/hexo-theme-laughing" target="_blank">LAUGHING</a></small></p></div></div></div><script>var wrap = document.getElementById('wrap');
+window.onload = function () {
+  wrap.className += ' done';
+}</script></body></html>

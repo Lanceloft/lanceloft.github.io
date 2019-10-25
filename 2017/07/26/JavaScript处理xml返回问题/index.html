@@ -1,0 +1,23 @@
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"><meta name="format-detection" content="telephone=no"><meta name="format-detection" content="email=no"><meta name="description"><meta name="keywords" content="Hexo, Gruntjs, Nodejs, Reactjs, Vuejs"><title>JavaScript处理xml返回问题 - lanceloft's blog</title><link rel="stylesheet" href="/css/main_style.min.css"><link rel="icon" href="/favicon.ico"></head><body><input id="navi" type="checkbox"><ul class="main-navication"><li><a href="/"><span>Home</span></a></li><li><a href="https://github.com"><span>Github</span></a></li><li><a href="https://www.v2ex.com/"><span>V2EX</span></a></li></ul><div class="wrapper" id="wrap"><div class="post-header"><label class="navi-button light" for="navi">MENU</label><img class="background" src="http://callfiles.ueibo.com/hexo-theme-laughing/post_background.jpg"><div class="post-title"><h1 class="title">JavaScript处理xml返回问题</h1><ul class="meta"><li><i class="icon icon-author"></i>Lanceloft</li><li><i class="icon icon-clock"></i>1 Minutes</li><li><i class="icon icon-calendar"></i>July 26, 2017</li></ul></div></div><div class="article-content" style="max-width:800px"><h5 id="开头介绍"><a href="#开头介绍" class="headerlink" title="开头介绍"></a>开头介绍</h5><p>虽然xml返回的普及度不高，但是我发现像一些底层语言来运行的功能，例如我现在搞的c++搞ICE做视频监控，返回的就是一大段乱七八糟的xml来处理。<br>有几种方法来处理返回的xml，可以根据需求来进行选择</p>
+<ol>
+<li><p>DOM解析<br><a href="http://www.w3school.com.cn/xmldom/dom_parser.asp" target="_blank" rel="noopener">w3school参考地址</a><br>利用  </p>
+<pre><code>parser=new DOMParser();  
+xmlDoc=parser.parseFromString(txt,&quot;text/xml&quot;);  
+</code></pre><p>txt这里可以是返回的xml，然后xmlDoc会返回整理后的xml，不过会有一个#document节点且我目前查资料是无法去掉，同时返回的xml需要进行处理才可以让js来进行读取。这里的方法暂时觉得并不十分好用。</p>
+</li>
+<li><p>x2js插件<br><a href="https://github.com/abdmob/x2js" target="_blank" rel="noopener">x2js github地址</a><br>这个插件使用起来非常简单，文档也是十分详细，可以参考github，我这里是使用了vue所以用npm安装也是方便</p>
+<p>npm/cnpm安装  </p>
+<pre><code>cnpm install x2js -S  
+</code></pre><p>引用</p>
+<pre><code>import { parseString } from &apos;xml2js&apos;;
+</code></pre><p>使用</p>
+<pre><code>parseString(msg, (err, result) =&gt; {
+  console.log(result)
+})
+</code></pre><p>如此即可，十分简便</p>
+</li>
+</ol>
+</div><div class="article-meta" style="max-width:800px"><div class="categories"><i class="icon icon-category"></i><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a><span class="category-list-count">1</span></li></ul></div></div><ul class="navication"><li class="home"><a href="/"><i class="icon icon-home"></i></a></li><li><a href="/2017/08/10/关于一道面试题/"><i class="icon icon-arror-left"></i></a></li><li><a href="/2017/07/24/windows下科学上网/"><i class="icon icon-arror-right"></i></a></li></ul><div class="page-footer"><div class="top"><ul class="social"><li><a href="https://github.com/lanceloft" title="Github" target="_blank"><i class="icon icon-github"></i></a></li></ul></div><div class="bottom"><p class="copyright">© 2019 lanceloft's blog<br><small>POWER BY <a href="https://hexo.io" target="_blank">HEXO</a></small><small>, THEME BY <a href="https://github.com/BoizZ/hexo-theme-laughing" target="_blank">LAUGHING</a></small></p></div></div></div><script>var wrap = document.getElementById('wrap');
+window.onload = function () {
+  wrap.className += ' done';
+}</script></body></html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"><meta name="format-detection" content="telephone=no"><meta name="format-detection" content="email=no"><meta name="description"><meta name="keywords" content="Hexo, Gruntjs, Nodejs, Reactjs, Vuejs"><title>利用hexo建博客1 - lanceloft's blog</title><link rel="stylesheet" href="/css/main_style.min.css"><link rel="icon" href="/favicon.ico"></head><body><input id="navi" type="checkbox"><ul class="main-navication"><li><a href="/"><span>Home</span></a></li><li><a href="https://github.com"><span>Github</span></a></li><li><a href="https://www.v2ex.com/"><span>V2EX</span></a></li></ul><div class="wrapper" id="wrap"><div class="post-header"><label class="navi-button light" for="navi">MENU</label><img class="background" src="http://callfiles.ueibo.com/hexo-theme-laughing/post_background.jpg"><div class="post-title"><h1 class="title">利用hexo建博客1</h1><ul class="meta"><li><i class="icon icon-author"></i>Lanceloft</li><li><i class="icon icon-clock"></i>1 Minutes</li><li><i class="icon icon-calendar"></i>December 2, 2016</li></ul></div></div><div class="article-content" style="max-width:800px"><p>　　昨天已经介绍了利用hexo搭建默认的博客。那么今天来介绍更改hexo的主题。hexo的主题在官网上有着非常多漂亮的demo 这是hexo主题链接。<br>　　<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a>  </p>
+<p>　　以我现在用的laughing为例，其他主题的安装也是类似的。官网文档在这里<br>　　<a href="https://github.com/BoizZ/hexo-theme-laughing" target="_blank" rel="noopener">https://github.com/BoizZ/hexo-theme-laughing</a>  </p>
+<p>首先还是在blog目录下执行</p>
+<blockquote>
+<p>npm install hexo-renderer-pug –save</p>
+</blockquote>
+<p>安装成功后，可以开始下载主题</p>
+<blockquote>
+<p>cd themes<br>git clone <a href="https://github.com/BoizZ/hexo-theme-laughing.git" target="_blank" rel="noopener">https://github.com/BoizZ/hexo-theme-laughing.git</a></p>
+</blockquote>
+<p>当git执行成功后主题已经成功下载到我们的hexo里面了，接下来只需要在修改blog目录下面的_config.yml文件。<br>例如使用ubuntu自带的gedit编辑器可以</p>
+<blockquote>
+<p>gedit _config.yml    </p>
+</blockquote>
+<p>在 Extensions的theme可以看到默认的theme写着landscape。我们只需要修改为hexo-theme-laughing就可以。例如<br>theme: hexo-theme-laughing<br>注意冒号后的空格。yml里面的书写必须非常规范。接下来运行hexo s就可以看到已经使用了新的主题了。<br>其他主题的使用方法也是一样，根目录npm install 依赖 -&gt; 进入theme clone 主题的地址 -&gt; 编辑根目录的theme配置。　</p>
+</div><div class="article-meta" style="max-width:800px"><div class="categories"><i class="icon icon-category"></i><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">4</span></li></ul></div></div><ul class="navication"><li class="home"><a href="/"><i class="icon icon-home"></i></a></li><li><a href="/2016/12/03/利用hexo建博客2/"><i class="icon icon-arror-left"></i></a></li><li><a href="/2016/12/01/利用hexo建博客/"><i class="icon icon-arror-right"></i></a></li></ul><div class="page-footer"><div class="top"><ul class="social"><li><a href="https://github.com/lanceloft" title="Github" target="_blank"><i class="icon icon-github"></i></a></li></ul></div><div class="bottom"><p class="copyright">© 2019 lanceloft's blog<br><small>POWER BY <a href="https://hexo.io" target="_blank">HEXO</a></small><small>, THEME BY <a href="https://github.com/BoizZ/hexo-theme-laughing" target="_blank">LAUGHING</a></small></p></div></div></div><script>var wrap = document.getElementById('wrap');
+window.onload = function () {
+  wrap.className += ' done';
+}</script></body></html>
